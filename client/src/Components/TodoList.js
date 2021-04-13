@@ -3,22 +3,22 @@ import TextField from "./TextField";
 import List from "./List";
 
 const TodoList = () => {
-  const [todo, addTodo] = useState("");
-  const [list, addList] = useState([]);
+  const [todo, setTodo] = useState("");
+  const [list, setList] = useState([]);
 
   const onChange = ({ target }) => {
-    addTodo(target.value);
+    setTodo(target.value);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addList([...list, todo]);
-    addTodo("");
+    setList([...list, todo]);
+    setTodo("");
     console.log("click");
   };
 
   const removeTodo = (i) => {
-    addList((prevState) => [...list.filter((el, index) => index !== i)]);
+    setList((prevState) => [...list.filter((el, index) => index !== i)]);
   };
 
   return (
