@@ -2,7 +2,7 @@ import React from "react";
 
 const TextField = (props) => {
   return (
-    <section>
+    <section className="input">
       <form onSubmit={props.onSubmit}>
         <input type="text" onChange={props.onChange} value={props.value} />
         <button type="submit">Add Todo</button>

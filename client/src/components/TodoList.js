@@ -14,7 +14,6 @@ const TodoList = () => {
     e.preventDefault();
     setList([...list, todo]);
     setTodo("");
-    console.log("click");
   };
 
   const removeTodo = (i) => {
@@ -24,13 +23,17 @@ const TodoList = () => {
   return (
     <section>
       <TextField onChange={onChange} onSubmit={onSubmit} value={todo} />
-      {list.length > 0 ? (
-        list.map((el, i) => (
-          <List todo={el} key={i} removeTodo={removeTodo} index={i} />
-        ))
-      ) : (
-        <div>No Todos</div>
-      )}
+      <div className="list">
+        {list.length > 0 ? (
+          <ul>
+            {list.map((el, i) => (
+              <List todo={el} key={i} removeTodo={removeTodo} index={i} />
+            ))}
+          </ul>
+        ) : (
+          <div>No Todos</div>
+        )}
+      </div>
     </section>
   );
 };
